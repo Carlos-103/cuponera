@@ -1,13 +1,17 @@
 1. **Instalar WAMP**
 
 -Descargar e instalar WAMP
+
 -Ejecutar como administrador
 
 2. **Iniciar servicios**
 
--Abrir WAMP y esperar que el icono esté en VERDE.  
-Esto da a entender que Apache y MySQL estan funcionando  
--Si no inicia, cerrar cualquier otro proceso MySQL/XAMPP.  
+-Abrir WAMP y esperar que el icono esté en VERDE.
+
+Esto da a entender que Apache y MySQL estan funcionando
+
+-Si no inicia, cerrar cualquier otro proceso MySQL/XAMPP.
+
 Es necesario que el puerto 3306 y el puerto 80 esten disponibles.
 
 3. **Copiar el proyecto**
@@ -18,20 +22,30 @@ C:\wamp64\www\
 4. **Importar la base de datos a phpmyadmin**
 
 -En el buscador colocar http://localhost/
+
 -En la apartado de alias entrar en: phpmyadmin 5.X.X(segun sea la version instalada)
+
 -Dentro de phpMyAdmin:
--Click en el tab Importar:
+
+Click en el tab Importar:
+
 -Seleccionar el archivo cuponera.sql
+
 -Ejecutar la importación
+
 -Verificar que todo este en verde
 
 5. **Verificar la conexión**  
    Se tiene que verificar que este bien la conexion en database.php:
 
 define('DB_HOST', '127.0.0.1');
+
 define('DB_PORT', '3306');
+
 define('DB_USER', 'root');
+
 define('DB_PASS', '');
+
 define('DB_NAME', 'cuponera_sv');
 
 6. **Abrir el sistema**  
@@ -40,19 +54,29 @@ define('DB_NAME', 'cuponera_sv');
 7. **Credenciales**
 
 a. Administrador
+
 Usuario: admin
+
 Contraseña: password
 
 - Registar los siguientes usuarios:
 
 b. Empresa
+
 Usuario: SuperSelectos
+
 Correo: superselecots@gmail.com
+
 Contraseña: 456177GB
+
 Usuario:SuperRepuesto
+
 Correo: superepuesto@gmail.com
+
 Contraseña: 222571MB
 
 c. Cliente
+
 Usuario: Ramooon
+
 Contraseña: 14786325
