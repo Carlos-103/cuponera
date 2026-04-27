@@ -35,6 +35,7 @@ require_once __DIR__ . '/../../includes/header.php';
 
 <div style="display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap">
   <a href="<?= BASE_URL ?>/pages/admin/nuevo_admin.php" class="btn btn-primary">+ Nuevo administrador</a>
+  <a href="<?= BASE_URL ?>/pages/admin/reportes.php" class="btn btn-dark">📊 Ver reportes</a>
 </div>
 
 <?php if ($pendientes): ?>
