@@ -60,7 +60,16 @@ require_once __DIR__ . '/../../includes/header.php';
         <div class="form-group"><label>Apellidos *</label><input type="text" name="apellidos" value="<?= sanitize($data['apellidos']??'') ?>" required></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>DUI (00000000-0) *</label><input type="text" name="dui" placeholder="12345678-9" value="<?= sanitize($data['dui']??'') ?>" required></div>
+        <div class="form-group">
+          <label>DUI (00000000-0) *</label>
+          <input type="text" name="dui" id="campo-dui"
+                 placeholder="12345678-9"
+                 value="<?= sanitize($data['dui']??'') ?>"
+                 maxlength="10"
+                 autocomplete="off"
+                 required>
+         
+        </div>
         <div class="form-group"><label>Fecha de nacimiento *</label><input type="date" name="fecha_nacimiento" value="<?= sanitize($data['fecha_nacimiento']??'') ?>" max="<?= date('Y-m-d', strtotime('-18 years')) ?>" required></div>
       </div>
       <div class="form-group"><label>Usuario *</label><input type="text" name="usuario" value="<?= sanitize($data['usuario']??'') ?>" required></div>
@@ -74,4 +83,44 @@ require_once __DIR__ . '/../../includes/header.php';
     <p style="margin-top:1rem;font-size:.9rem;">¿Ya tienes cuenta? <a href="<?= BASE_URL ?>/login.php">Inicia sesión</a></p>
   </div>
 </div>
+
+<script>
+(function() {
+    var campo = document.getElementById('campo-dui');
+    if (!campo) return;
+
+    campo.addEventListener('keypress', function(e) {
+        // Solo permitir números
+        if (!/[0-9]/.test(e.key)) {
+            e.preventDefault();
+        }
+    });
+
+    campo.addEventListener('input', function(e) {
+        // Quitar todo lo que no sea número
+        var solo_nums = e.target.value.replace(/[^0-9]/g, '');
+
+        // Limitar a 9 dígitos
+        if (solo_nums.length > 9) {
+            solo_nums = solo_nums.slice(0, 9);
+        }
+
+        // Insertar guion antes del último dígito cuando hay 9
+        if (solo_nums.length === 9) {
+            e.target.value = solo_nums.slice(0, 8) + '-' + solo_nums.slice(8);
+        } else {
+            e.target.value = solo_nums;
+        }
+    });
+
+    campo.addEventListener('keydown', function(e) {
+        // Si borra y el último char es guion, quitar el guion también
+        if (e.key === 'Backspace' && e.target.value.endsWith('-')) {
+            e.target.value = e.target.value.slice(0, -1);
+            e.preventDefault();
+        }
+    });
+})();
+</script>
+
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>
