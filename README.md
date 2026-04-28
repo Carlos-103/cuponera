@@ -1,12 +1,10 @@
-1. **Instalar WAMP**
+1. **Instalar WAMPSERVER**
 
--Descargar e instalar WAMP
-
--Ejecutar como administrador
+-Descargar e instalar WAMPSERVER
 
 2. **Iniciar servicios**
 
--Abrir WAMP y esperar que el icono esté en VERDE.
+-Abrir WAMPSERVER y esperar que el icono esté en verde.
 
 Esto da a entender que Apache y MySQL estan funcionando
 
