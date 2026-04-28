@@ -57,7 +57,7 @@ Usuario: admin
 
 Contraseña: password
 
-- Registar los siguientes usuarios:
+- Registar los siguientes usuarios de prueba:
 
 b. Empresa
 
